@@ -1,13 +1,16 @@
 #include <iostream>
 
 
-
-template<typename T>
-void findMin(T arr[], int size);
+// template<typename T>
+// void EvenNumber(T arr[], int size);
+// template<typename T>
+// void findMin(T arr[], int size);
 template<typename T>
 void Mass(T arr[], int size);
 template<typename T>
-void EvenNumber(T arr[], int size);
+void SelectionSort(T arr, int size);
+template<typename T>
+void BoubleSort(T arr, int size);
 
 
 
@@ -15,13 +18,22 @@ int main() {
 
     const int SIZE = 10;
     int arr[SIZE] = {120, 7, 60, 9, 5,18,30,25,80,100};
-    char str[SIZE] = {'A', 'B', 'C', 'D', 'E','F','X','O','H','N',};
+    char str[SIZE] = {'A', 'B', 'H', 'D', 'E','F','X','O','C','N',};
 
     Mass(arr, SIZE);
     Mass(str, SIZE);
-    findMin(arr, SIZE);
 
-    EvenNumber(arr, SIZE);
+    SelectionSort(arr, SIZE);
+    SelectionSort(str, SIZE);
+
+    Mass(arr, SIZE);
+    Mass(str, SIZE);
+
+     BoubleSort(arr, SIZE);
+    BoubleSort(str, SIZE);
+
+    Mass(arr, SIZE);
+    Mass(str, SIZE);
 
     return 0;
 }
@@ -35,32 +47,70 @@ void Mass(T arr[], int size) {
     }
     std::cout << std::endl;
 }
-
 template<typename T>
-void findMin(T arr[], int size) {
-
-    int minElement = arr[0];
-    int minIndex = 0;
-
-    for (int i = 1; i < size; ++i) {
-        if (arr[i] < minElement) {
-            minElement = arr[i];
-            minIndex = i;
-        }
-    }
-
-    std::cout << "Minimal element: " << minElement << std::endl;
-    std::cout << "Index minimal element: " << minIndex << std::endl;
-}
-
-template<typename T>
-void EvenNumber(T arr[], int size) {
-    for (int i = 1; i < size; i++) {
-            if (arr[i] % 2 == 0) {
-                std::cout << "Even number: " << arr[i] << ", index: " << i << std::endl;
+void SelectionSort(T arr, int size) {
+    for (int i = 0;i < size - 1;i++) {
+        for (int j = i + 1;j < size;j++) {
+            if (arr[j]< arr[i]) {
+                std::swap(arr[j], arr[i]);
+            }
         }
     }
 }
+
+
+
+template<typename T>
+void BoubleSort(T arr, int size) {
+    for (int i = 0;i < size - 1;i++) {
+        for (int j = size - 1;j > i;j--) {
+            if (arr[j] <  arr[j-1]) {
+                std::swap(arr[j], arr[j-1]);
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// template<typename T>
+// void findMin(T arr[], int size) {
+//
+//     int minElement = arr[0];
+//     int minIndex = 0;
+//
+//     for (int i = 1; i < size; ++i) {
+//         if (arr[i] < minElement) {
+//             minElement = arr[i];
+//             minIndex = i;
+//         }
+//     }
+//
+//     std::cout << "Minimal element: " << minElement << std::endl;
+//     std::cout << "Index minimal element: " << minIndex << std::endl;
+// }
+//
+// template<typename T>
+// void EvenNumber(T arr[], int size) {
+//     for (int i = 1; i < size; i++) {
+//             if (arr[i] % 2 == 0) {
+//                 std::cout << "Even number: " << arr[i] << ", index: " << i << std::endl;
+//         }
+//     }
+// }
 
 
 
