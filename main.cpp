@@ -11,7 +11,17 @@ template<typename T>
 void SelectionSort(T arr, int size);
 template<typename T>
 void BoubleSort(T arr, int size);
+template<typename T>
+void InsertionSort(T arr[],int size);
 
+int Factorial(int number);
+
+template<typename T>
+void QuickSort(T arr[], int last, int first = 0);
+
+
+template <typename T>
+int BinarySearch(const T arr[],int size, T key);
 
 
 int main() {
@@ -20,20 +30,45 @@ int main() {
     int arr[SIZE] = {120, 7, 60, 9, 5,18,30,25,80,100};
     char str[SIZE] = {'A', 'B', 'H', 'D', 'E','F','X','O','C','N',};
 
+    // Mass(arr, SIZE);
+    // Mass(str, SIZE);
+
+    // SelectionSort(arr, SIZE);
+    // SelectionSort(str, SIZE);
+    //
+    // Mass(arr, SIZE);
+    // Mass(str, SIZE);
+
+    //  BoubleSort(arr, SIZE);
+    // BoubleSort(str, SIZE);
+
+    // InsertionSort(arr, SIZE);
+    // InsertionSort(str, SIZE);
+    //
+    //
+    // Mass(arr, SIZE);
+    // Mass(str, SIZE);
+
+    // std::cout << "5! = " << Factorial(5) << std::endl;
+
+
+    QuickSort(arr, 0,SIZE - 1);
+    QuickSort(str, 0,SIZE - 1);
+
     Mass(arr, SIZE);
     Mass(str, SIZE);
 
-    SelectionSort(arr, SIZE);
-    SelectionSort(str, SIZE);
 
-    Mass(arr, SIZE);
-    Mass(str, SIZE);
+    int value;
+    std::cout << "Enter value: "  ;
+    std::cin >> value;
 
-     BoubleSort(arr, SIZE);
-    BoubleSort(str, SIZE);
+    int foundIndex = BinarySearch(arr,SIZE,value);
 
-    Mass(arr, SIZE);
-    Mass(str, SIZE);
+    if (foundIndex != -1) {
+        std::cout << "The array has your value: " << foundIndex << std::endl;
+    } else
+        std::cout << "The array doesn't have your value! " << std::endl;
 
     return 0;
 }
@@ -58,7 +93,7 @@ void SelectionSort(T arr, int size) {
     }
 }
 
-//////
+
 
 template<typename T>
 void BoubleSort(T arr, int size) {
@@ -70,6 +105,73 @@ void BoubleSort(T arr, int size) {
         }
     }
 }
+
+
+template<typename T>
+void InsertionSort(T arr[],int size) {
+    for (int i = 1; i < size; i++) {
+        int key = arr[i];
+
+        int j;
+        for (j = i - 1; j >= 0 && arr[j] > key;j-- )
+            arr[j + 1] = arr[j];
+
+        arr[j + 1] = key;
+    }
+}
+
+// int Factorial(int number) {
+//     return number == 0 ? 1 : number * Factorial(number - 1);
+// }
+
+
+template <typename T>
+void QuickSort(T arr[], int first, int last) {
+    T middle = arr[(first + last) / 2];
+    int i = first;
+    int j = last;
+
+    do {
+        while (arr[i] < middle) i++;
+        while (arr[j] > middle) j--;
+
+        if (i <= j) {
+            std::swap(arr[i], arr[j]);
+            i++;
+            j--;
+        }
+    } while (i <= j);
+
+    if (first < j) {
+        QuickSort(arr, first, j);
+    }
+    if (i < last) {
+        QuickSort(arr, i, last);
+    }
+}
+
+template <typename T>
+int BinarySearch(const T arr[],int size, T key) {
+
+    int leftBound = 0, rightBound = size - 1;
+
+    do {
+        int middle = (leftBound + rightBound) / 2;
+
+        if (key < arr[middle])
+            rightBound = middle - 1;
+        else if (key > arr[middle])
+            leftBound = middle + 1;
+        else
+            return middle;
+    }while (leftBound <= rightBound);
+
+
+
+
+    return -1;
+}
+
 
 
 
