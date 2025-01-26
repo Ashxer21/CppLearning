@@ -1,191 +1,300 @@
 #include <iostream>
 
+void Swap(int &first,int &second) {
+    std::swap(first,second);
+}
 
-// template<typename T>
-// void EvenNumber(T arr[], int size);
-// template<typename T>
-// void findMin(T arr[], int size);
-template<typename T>
-void Mass(T arr[], int size);
-template<typename T>
-void SelectionSort(T arr, int size);
-template<typename T>
-void BoubleSort(T arr, int size);
-template<typename T>
-void InsertionSort(T arr[],int size);
-
-int Factorial(int number);
-
-template<typename T>
-void QuickSort(T arr[], int last, int first = 0);
-
-
-template <typename T>
-int BinarySearch(const T arr[],int size, T key);
 
 
 int main() {
 
-    const int SIZE = 10;
-    int arr[SIZE] = {120, 7, 60, 9, 5,18,30,25,80,100};
-    char str[SIZE] = {'A', 'B', 'H', 'D', 'E','F','X','O','C','N',};
-
-    // Mass(arr, SIZE);
-    // Mass(str, SIZE);
-
-    // SelectionSort(arr, SIZE);
-    // SelectionSort(str, SIZE);
-    //
-    // Mass(arr, SIZE);
-    // Mass(str, SIZE);
-
-    //  BoubleSort(arr, SIZE);
-    // BoubleSort(str, SIZE);
-
-    // InsertionSort(arr, SIZE);
-    // InsertionSort(str, SIZE);
-    //
-    //
-    // Mass(arr, SIZE);
-    // Mass(str, SIZE);
-
-    // std::cout << "5! = " << Factorial(5) << std::endl;
 
 
-    QuickSort(arr, 0,SIZE - 1);
-    QuickSort(str, 0,SIZE - 1);
+    std::cout << "Enter a first number: ";
+    int first;
+    std::cin >> first;
 
-    Mass(arr, SIZE);
-    Mass(str, SIZE);
+    std::cout << "Enter a second number: ";
+    int second;
+    std::cin >> second;
 
+    Swap(first,second);
 
-    int value;
-    std::cout << "Enter value: "  ;
-    std::cin >> value;
+     std::cout  << "Swap first number: "<< first << std::endl;
+     std::cout <<   "Swap second number: "  << second << std::endl;
 
-    int foundIndex = BinarySearch(arr,SIZE,value);
-
-    if (foundIndex != -1) {
-        std::cout << "The array has your value: " << foundIndex << std::endl;
-    } else
-        std::cout << "The array doesn't have your value! " << std::endl;
 
     return 0;
 }
 
 
-template<typename T>
-void Mass(T arr[], int size) {
-
-    for (int i = 0; i < size; i++) {
-        std::cout << arr[i] << " ";
-    }
-    std::cout << std::endl;
-}
-template<typename T>
-void SelectionSort(T arr, int size) {
-    for (int i = 0;i < size - 1;i++) {
-        for (int j = i + 1;j < size;j++) {
-            if (arr[j]< arr[i]) {
-                std::swap(arr[j], arr[i]);
-            }
-        }
-    }
-}
 
 
 
-template<typename T>
-void BoubleSort(T arr, int size) {
-    for (int i = 0;i < size - 1;i++) {
-        for (int j = size - 1;j > i;j--) {
-            if (arr[j] <  arr[j-1]) {
-                std::swap(arr[j], arr[j-1]);
-            }
-        }
-    }
-}
 
 
-template<typename T>
-void InsertionSort(T arr[],int size) {
-    for (int i = 1; i < size; i++) {
-        int key = arr[i];
 
-        int j;
-        for (j = i - 1; j >= 0 && arr[j] > key;j-- )
-            arr[j + 1] = arr[j];
 
-        arr[j + 1] = key;
-    }
-}
+
+
+
+
+
+
+
+
+// void Swap(int *first,int *second) {
+//     std::swap(*first, *second);
+// }
+//
+// int first,second;
+// std::cout << "Enter a first number: ";
+// std::cin >> first;
+// std::cout << "Enter a second number: ";
+// std::cin >> second;
+//
+// Swap(&first,&second);
+//
+// std::cout  << "Swap first number: "<< first << std::endl;
+// std::cout <<   "Swap second number: "  << second << std::endl;
+
+// int n,m;
+//
+//     std::cout << "Enter n side: ";
+//     std::cin >> n;
+//     std::cout << "Enter m side: ";
+//     std::cin >> m;
+//
+//
+//     int** arr = CreateArray(n,m);
+//
+//     std::cout << "2D Array:"<< std::endl;
+//     FillArrayShow(arr,n,m);
+//     DeleteArray(arr, n);
+
+//
+// int** CreateArray(int n ,int m) {
+//     int** arr = new int*[n];
+//
+//     for (int i = 0;i < n;i++) {
+//         arr[i] = new int[m];
+//     }
+//     return arr;
+// }
+//
+//
+// void FillArrayShow(int** arr , int n ,int m) {
+//     for (int i = 0; i < n;i++) {
+//         for (int j = 0;j < m; j++) {
+//             arr[i][j] = rand() % 100;
+//             std::cout << arr[i][j] << " ";
+//         }
+//         std::cout << std::endl;
+//     }
+// }
+//
+//
+// void DeleteArray(int** arr, int n) {
+//     for (int i = 0; i < n; i++) {
+//         delete[] arr[i];
+//     }
+//     delete[] arr;
+// }
+//
+
+
+
+
+
+
+
+
+
+
+
+// int size;
+// std::cout << "Enter a size array: " ;
+// std::cin >> size;
+//
+//
+// int* arr = new int[size] {120, 7, 60, 9, 5,18,30,25,80,100};
+//
+//
+// for (int i = 0; i < size;i++) {
+//     std::cout << arr[i] << " ";
+// }
+// std::cout << std::endl;
+//
+// delete arr;
+//
+
+
+
+
+// const int SIZE = 1000;
+// char buffer[SIZE];
+//
+// std::cout << "Enter word: ";
+// std::cin.getline(buffer, SIZE);
+//
+// int length = strlen(buffer);
+//
+// char* str = new char[length + 1];
+//
+// strcpy_s(str ,length + 1 ,buffer);
+//
+// std::cout << str << std::endl;
+//
+// delete[] str;
+
+
+
+
+// const int SIZE = 10;
+// int arr[SIZE] = {120, 7, 60, 9, 5,18,30,25,80,100};
+// char str[SIZE] = {'A', 'B', 'H', 'D', 'E','F','X','O','C','N',};
+// void Func1(const int[], int) {
+//     // Порожня функція
+// }
+//
+//
+//
+// template<typename T>
+// void Mass(T arr[], int size, void (*showFunction)(T element));
+//
+// template<typename T>
+// void QuickSort(T arr[], int last, int first = 0);
+//
+// template <typename T>
+// int BinarySearch(const T arr[],int size, T key);
+// template <typename T>
+// void Change(T element);
+//
+// template<typename T>
+// void Mass(T arr[], int size , void (*showFunction)(T element)) {
+//
+//     for (int i = 0; i < size; i++) {
+//         showFunction(arr[i]);
+//     }
+//     std::cout << std::endl;
+// }
+//
+//
+//
+//
+//
+// template<typename T>
+// void Change(T element) {
+//
+//     std::cout <<  "(" << element << ")";
+//
+// }
+//
+//
+//
+// template <typename T>
+// void QuickSort(T arr[], int first, int last) {
+//     T middle = arr[(first + last) / 2];
+//     int i = first;
+//     int j = last;
+//
+//     do {
+//         while (arr[i] < middle) i++;
+//         while (arr[j] > middle) j--;
+//
+//         if (i <= j) {
+//             std::swap(arr[i], arr[j]);
+//             i++;
+//             j--;
+//         }
+//     } while (i <= j);
+//
+//     if (first < j) {
+//         QuickSort(arr, first, j);
+//     }
+//     if (i < last) {
+//         QuickSort(arr, i, last);
+//     }
+// }
+//
+// template <typename T>
+// int BinarySearch(const T arr[],int size, T key) {
+//
+//     int leftBound = 0, rightBound = size - 1;
+//
+//     do {
+//         int middle = (leftBound + rightBound) / 2;
+//
+//         if (key < arr[middle])
+//             rightBound = middle - 1;
+//         else if (key > arr[middle])
+//             leftBound = middle + 1;
+//         else
+//             return middle;
+//     }while (leftBound <= rightBound);
+//
+//
+//
+//
+//     return -1;
+// }
+
+
+// int value;
+// std::cout << "Enter value: "  ;
+// std::cin >> value;
+//
+// int foundIndex = BinarySearch(arr,SIZE,value);
+
+// if (foundIndex != -1) {
+//     std::cout << "The array has your value: " << foundIndex << std::endl;
+// } else
+//     std::cout << "The array doesn't have your value! " << std::endl;
+
+
+
 
 // int Factorial(int number) {
 //     return number == 0 ? 1 : number * Factorial(number - 1);
 // }
 
-
-template <typename T>
-void QuickSort(T arr[], int first, int last) {
-    T middle = arr[(first + last) / 2];
-    int i = first;
-    int j = last;
-
-    do {
-        while (arr[i] < middle) i++;
-        while (arr[j] > middle) j--;
-
-        if (i <= j) {
-            std::swap(arr[i], arr[j]);
-            i++;
-            j--;
-        }
-    } while (i <= j);
-
-    if (first < j) {
-        QuickSort(arr, first, j);
-    }
-    if (i < last) {
-        QuickSort(arr, i, last);
-    }
-}
-
-template <typename T>
-int BinarySearch(const T arr[],int size, T key) {
-
-    int leftBound = 0, rightBound = size - 1;
-
-    do {
-        int middle = (leftBound + rightBound) / 2;
-
-        if (key < arr[middle])
-            rightBound = middle - 1;
-        else if (key > arr[middle])
-            leftBound = middle + 1;
-        else
-            return middle;
-    }while (leftBound <= rightBound);
+// template<typename T>
+// void SelectionSort(T arr, int size) {
+//     for (int i = 0;i < size - 1;i++) {
+//         for (int j = i + 1;j < size;j++) {
+//             if (arr[j]< arr[i]) {
+//                 std::swap(arr[j], arr[i]);
+//             }
+//         }
+//     }
+// }
 
 
 
-
-    return -1;
-}
-
-
-
-
-
-
-
-
-
+// template<typename T>
+// void BoubleSort(T arr, int size) {
+//     for (int i = 0;i < size - 1;i++) {
+//         for (int j = size - 1;j > i;j--) {
+//             if (arr[j] <  arr[j-1]) {
+//                 std::swap(arr[j], arr[j-1]);
+//             }
+//         }
+//     }
+// }
 
 
-
-
-
-
+// template<typename T>
+// void InsertionSort(T arr[],int size) {
+//     for (int i = 1; i < size; i++) {
+//         int key = arr[i];
+//
+//         int j;
+//         for (j = i - 1; j >= 0 && arr[j] > key;j-- )
+//             arr[j + 1] = arr[j];
+//
+//         arr[j + 1] = key;
+//     }
+// }
 
 
 // template<typename T>
@@ -441,6 +550,8 @@ int BinarySearch(const T arr[],int size, T key) {
 //     }
 //     std::cout << std::endl;
 // }
+
+
 // int num;
 // std::cout << "Enter num: ";
 // std::cin >> num;
@@ -467,6 +578,10 @@ int BinarySearch(const T arr[],int size, T key) {
 //     sum *= i;
 // }
 // std::cout << sum<< " ";
+
+
+
+
 // int number;
 // std::cout << "Enter a number: ";
 // std::cin >> number;
