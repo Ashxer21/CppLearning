@@ -1,27 +1,32 @@
 #include <iostream>
 
-void Swap(int &first,int &second) {
-    std::swap(first,second);
+
+struct Student {
+    std::string name;
+    int age;
+    double gpa;
+
+};
+
+void ShowStudents(const Student students[],int size) {
+    for (int i = 0;i < size;i++) {
+        std::cout << "Student " << i + 1 << ":" << std::endl;
+        std::cout << "Name " << students[i].name << ":" << std::endl;
+        std::cout << "Age " << students[i].age << ":" << std::endl;
+        std::cout << "GPA " << students[i].gpa << ":" << std::endl;
+        std::cout << "-----------------------" << std::endl;
+    }
 }
 
-
-
 int main() {
+   const int size = 3;
+   Student students[size] = {
+       {"Taras",20,25.1},
+       {"Alex",20,30.2},
+       {"Bogdan",18,15.1}
+   };
 
-
-
-    std::cout << "Enter a first number: ";
-    int first;
-    std::cin >> first;
-
-    std::cout << "Enter a second number: ";
-    int second;
-    std::cin >> second;
-
-    Swap(first,second);
-
-     std::cout  << "Swap first number: "<< first << std::endl;
-     std::cout <<   "Swap second number: "  << second << std::endl;
+    ShowStudents(students,size);
 
 
     return 0;
@@ -43,6 +48,91 @@ int main() {
 
 
 
+
+
+
+
+
+
+// int size;
+//
+// std::cout << "Enter a size array: ";
+// std::cin >> size;
+//
+// int* arr = CreateDynamicArray(size);
+//
+// std::cout  << "Before Array: ";
+// ShowArray(arr,size);
+//
+// SwapFirstAndLast(arr,size);
+//
+// std::cout  << "After Array: ";
+// ShowArray(arr,size);
+//
+//
+// delete[] arr;
+//
+// int* CreateDynamicArray(int size) {
+//     int*arr = new int[size];
+//     srand(time(0));
+//     for (int i = 0;i < size; i++) {
+//         arr[i] = rand() % 100;
+//     }
+//     return arr;
+// }
+//
+//
+// void SwapFirstAndLast(int* arr,int size) {
+//     if (size > 1) {
+//         std::swap(arr[0],arr[size -1]);
+//     }
+// }
+//
+//
+// void ShowArray(int* arr,int size) {
+//     for (int i = 0; i < size;i++) {
+//         std::cout << arr[i] << " ";
+//     }
+//     std::cout << std::endl;
+// }
+
+
+// void ArrayMult(int* arr,const int &size);
+
+// int arr[] = {1,2,3,4,5};
+// int size = 5;
+//
+//
+// ArrayMult(arr,size);
+
+//
+// void ArrayMult(int* arr,const int &size) {
+//     for (int i = 0; i < size;i++) {
+//         arr[i] *= 2;
+//     }
+//     for (int i = 0; i < size;i++) {
+//         std::cout << arr[i] << " ";
+//     }
+//     std::cout << std::endl;
+// }
+
+// void Swap(int &first,int &second) {
+//     std::swap(first,second);
+// }
+//
+// std::cout << "Enter a first number: ";
+// int first;
+// std::cin >> first;
+//
+// std::cout << "Enter a second number: ";
+// int second;
+// std::cin >> second;
+//
+// Swap(first,second);
+//
+//  std::cout  << "Swap first number: "<< first << std::endl;
+//  std::cout <<   "Swap second number: "  << second << std::endl;
+//
 // void Swap(int *first,int *second) {
 //     std::swap(*first, *second);
 // }
