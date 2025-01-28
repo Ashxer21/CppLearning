@@ -1,37 +1,54 @@
 #include <iostream>
 
-
-struct Student {
+struct Product {
     std::string name;
-    int age;
-    double gpa;
-
+    double price;
+    int quantity;
 };
 
-void ShowStudents(const Student students[],int size) {
-    for (int i = 0;i < size;i++) {
-        std::cout << "Student " << i + 1 << ":" << std::endl;
-        std::cout << "Name " << students[i].name << ":" << std::endl;
-        std::cout << "Age " << students[i].age << ":" << std::endl;
-        std::cout << "GPA " << students[i].gpa << ":" << std::endl;
-        std::cout << "-----------------------" << std::endl;
-    }
-}
+std::string MaxQuantity(const Product* products, int size);
+double CalculateAll(const Product* products, int size);
+
 
 int main() {
-   const int size = 3;
-   Student students[size] = {
-       {"Taras",20,25.1},
-       {"Alex",20,30.2},
-       {"Bogdan",18,15.1}
-   };
+    const int size = 5;
 
-    ShowStudents(students,size);
+    Product products[size] = {
+    {"Bread",40.50,200},
+    {"Apple",10.34,100},
+    {"Sausage",80.21,87},
+    {"Milk",31.20,50},
+    {"Water",12.72,500}
+    };
+
+   std::string maxProduct = MaxQuantity(products,size);
+    std::cout << "Product with max quantity: " << maxProduct << std::endl;
+
+    double totalPirce = CalculateAll(products,size);
+    std::cout << "Total price of all products: " << totalPirce << " UAH" << std::endl;
 
 
     return 0;
 }
 
+std::string MaxQuantity(const Product* products, int size) {
+    int maxQuant = 0;
+    for (int i = 0;i < size;i++) {
+        if (products[i].quantity > products[maxQuant].quantity) {
+            maxQuant = i;
+        }
+    }
+    return products[maxQuant].name;
+}
+
+
+double CalculateAll(const Product* products, int size) {
+    double totalValue = 0;
+    for (int i = 0; i < size;i++) {
+        totalValue += products[i].price * products[i].quantity;
+    }
+    return totalValue;
+}
 
 
 
@@ -54,8 +71,63 @@ int main() {
 
 
 
+
+
+
+
+
+// struct Point {
+//     double x;
+//     double y;
+//
+// };
+//
+// double CalculateDistance(Point p1,Point p2) {
+//     return sqrt(pow(p2.x - p1.x, 2) + pow(p2.y - p1.y, 2));
+// }
+// Point p1,p2;
+//
+// std::cout << "Enter the coordinates of the first point (x1, y1): ";
+// std::cin >> p1.x >> p1.y;
+//
+//
+// std::cout << "Enter the coordinates of the second point (x2, y2): ";
+// std::cin >> p2.x >> p2.y;
+//
+//
+// double distance = CalculateDistance(p1,p2);
+//
+// std::cout << "Distance between points: "<< distance << std::endl;
+//
+// struct Student {
+//     std::string name;
+//     int age;
+//     double gpa;
+//
+// };
+//
+// void ShowStudents(const Student students[],int size) {
+//     for (int i = 0;i < size;i++) {
+//         std::cout << "Student " << i + 1 << ":" << std::endl;
+//         std::cout << "Name " << students[i].name << ":" << std::endl;
+//         std::cout << "Age " << students[i].age << ":" << std::endl;
+//         std::cout << "GPA " << students[i].gpa << ":" << std::endl;
+//         std::cout << "-----------------------" << std::endl;
+//     }
+// }
 // int size;
 //
+// const int size = 3;
+// Student students[size] = {
+//     {"Taras",20,25.1},
+//     {"Alex",20,30.2},
+//     {"Bogdan",18,15.1}
+// };
+//
+//  ShowStudents(students,size);
+//
+
+
 // std::cout << "Enter a size array: ";
 // std::cin >> size;
 //
