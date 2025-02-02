@@ -1,3 +1,13 @@
+// В заголовкових файлах НЕ РЕКОМЕНДУЄТЬСЯ писати:
+// 1. Визначення функцій
+// 2. Визначення змінних даних
+
+// В заголовкових файлах РЕКОМЕНДУЄТЬСЯ писати:
+// 1. Прототипи функцій
+// 2. Визначення константних даних
+// 3. Визначення вбудованих функцій
+// 4. Описи структур, класів, об'єднань, перечислень
+// 5. Визначення шаблонних функцій
 
 
 
@@ -7,10 +17,66 @@
 
 
 
+// enum Device {
+//     OFF,
+//     ON,
+//     STANDBY
+// };
+//
+//
+// void updateDeviceStandby(Device *state, Device newState);
+//
+// void printDeviceState(const Device *state);
+//
 
-
-
-
+ // Device lampstate = OFF;
+    //
+    // Device *statePtr = &lampstate;
+    //
+    // printDeviceState(statePtr);
+    //
+    // updateDeviceStandby(statePtr, ON);
+    // printDeviceState(statePtr);
+    //
+    //
+    // updateDeviceStandby(statePtr, STANDBY);
+    // printDeviceState(statePtr);
+    //
+    //
+    // statePtr = nullptr;
+    // updateDeviceStandby(statePtr, OFF);
+    // printDeviceState(statePtr);
+// void updateDeviceStandby(Device *state, Device newState) {
+//     if (state) {
+//         *state = newState;
+//     } else {
+//         std::cout << "Invalide device pointer! " << std::endl;
+//     }
+// }
+//
+//
+//
+// void printDeviceState(const Device* state) {
+//     if (!state) {
+//         std::cout << "Invalide device pointer! " << std::endl;
+//         return;
+//     }
+//
+//     switch (*state) {
+//         case OFF:
+//             std::cout << "Device is  OFF" << std::endl;
+//             break;
+//         case ON:
+//             std::cout << "Device is  ON" << std::endl;
+//             break;
+//         case STANDBY:
+//             std::cout << "Device is in STANDBY mode" << std::endl;
+//             break;
+//         default:
+//             std::cout << "Unknow state!" << std::endl;
+//     }
+//
+// }
 
 //
 // struct Product {

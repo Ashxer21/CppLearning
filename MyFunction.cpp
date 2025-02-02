@@ -1,51 +1,40 @@
+#include <cmath>
+#include <random>
+#include <ctime>
+#include "Header.h"
 #include <iostream>
-// extern int  globalvariable;
-//
-//
-//
-//
-//
-// double ToCube(double number) {
-//     return number * number * number;
-// }
-//
-//
-//
-// int Factorial(int n) {
-//     if (n == 0 || n == 1) {
-//         return 1;
-//     }
-//     return n * Factorial(n - 1);
-// }
-//
-//
-// int isEven(int n) {
-//    if (n % 2 == 0) {
-//        std::cout << "This number is even: " << n << std::endl;
-//    } else if (n % 2 != 0){
-//        std::cout<< "This number is not even: " << n << std::endl;
-//    }
-//     return n;
-// }
-//
-// void Function() {
-//     globalvariable = 5;
-// }
-
-//
-// int Massive(int arr[], int size) {
-//     int min = arr[0];
-//
-//     for (int i = 1; i <= size; i++) {
-//         if (arr[i] < min) {
-//             min = arr[i];
-//         }
-//     }
-//
-//     return min;
-// }
 
 
+double Distance (const Point& point1, const Point& point2 ) {
+    double distance = sqrt(pow((point1.x - point2.x), 2) + pow((point1.y - point2.y), 2));
+    return distance;
+}
 
 
+int* CreateDynamicArray(int size) {
+    int*arr = new int[size];
+    srand(time(0));
+    for (int i = 0;i < size; i++) {
+        arr[i] = rand() % 100;
+    }
+    return arr;
+}
 
+
+void ShowArray(int* arr,int size) {
+    for (int i = 0; i < size;i++) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
+
+void BoubleSort(int* arr, int size) {
+    for (int i = 0;i < size - 1;i++) {
+        for (int j = size - 1;j > i;j--) {
+            if (arr[j] <  arr[j-1]) {
+                std::swap(arr[j], arr[j-1]);
+            }
+        }
+    }
+}

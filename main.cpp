@@ -1,73 +1,36 @@
 #include <iostream>
+#include "Header.h"
 
-
-enum Device {
-    OFF,
-    ON,
-    STANDBY
-};
-
-
-void updateDeviceStandby(Device *state, Device newState);
-
-void printDeviceState(const Device *state);
-
+template<typename T>
+void findMin(T arr[], int size);
 
 int main() {
-    Device lampstate = OFF;
+    Point point1{5,10};
+    Point point2{80,75};
 
-    Device *statePtr = &lampstate;
+    double dist = Distance(point1,point2);
+    std::cout << "Distance: "<< dist << std::endl;
 
-    printDeviceState(statePtr);
+    int size;
+    std::cout << "Enter a size array: ";
+    std::cin >> size;
 
-    updateDeviceStandby(statePtr, ON);
-    printDeviceState(statePtr);
+    int* arr = CreateDynamicArray(size);
+
+    BoubleSort(arr,size);
+
+    ShowArray(arr,size);
+
+    findMin(arr,size);
 
 
-    updateDeviceStandby(statePtr, STANDBY);
-    printDeviceState(statePtr);
-
-
-    statePtr = nullptr;
-    updateDeviceStandby(statePtr, OFF);
-    printDeviceState(statePtr);
+    delete[] arr;
 
 
     return 0;
 }
 
 
-void updateDeviceStandby(Device *state, Device newState) {
-    if (state) {
-        *state = newState;
-    } else {
-        std::cout << "Invalide device pointer! " << std::endl;
-    }
-}
-
-
-
-void printDeviceState(const Device* state) {
-    if (!state) {
-        std::cout << "Invalide device pointer! " << std::endl;
-        return;
-    }
-
-    switch (*state) {
-        case OFF:
-            std::cout << "Device is  OFF" << std::endl;
-            break;
-        case ON:
-            std::cout << "Device is  ON" << std::endl;
-            break;
-        case STANDBY:
-            std::cout << "Device is in STANDBY mode" << std::endl;
-            break;
-        default:
-            std::cout << "Unknow state!" << std::endl;
-    }
-
-}
 
 
 
