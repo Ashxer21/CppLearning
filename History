@@ -26,6 +26,31 @@
 
 
 
+//Завдання 3: Функції з передачею вказівників
+//Напиши функцію swapValues, яка змінює значення двох змінних місцями, використовуючи вказівники.
+//Програма:
+//Користувач вводить два числа.
+//Викликається функція swapValues.
+//Програма виводить значення до і після виклику функції.
+//
+// void SwapValues (int* a , int* b );
+
+  // int a,b;
+    // std::cout << "Enter a first number: ";
+    // std::cin >> a;
+    //
+    // std::cout << "Enter a second number: ";
+    // std::cin >> b;
+    //
+    // std::cout <<std::endl;
+    //
+    // std::cout << "Your number before: " << a << "," << b << std::endl;
+    // SwapValues(&a,&b);
+    //
+    // std::cout << "Your number after: " << a << "," << b << std::endl;
+// void SwapValues (int* a , int* b ) {
+//     std::swap(*a,*b);
+// };
 
 
 
@@ -47,8 +72,63 @@
 
 
 
+//Завдання 2: Динамічна пам'ять та масиви
+//Напиши функцію createArray, яка:
+
+//Виділяє динамічний масив розміру n, де n задається користувачем.
+//Заповнює масив числами від 1 до n.
+//Повертає вказівник на масив.
+//Також напиши функцію printArray, яка приймає вказівник на масив і виводить його елементи.
+//Підказка: не забудь звільнити пам'ять!
 
 
+
+// int* CreateArray(int size) {
+//     int* array = new int[size];
+//
+//     for (int i = 0; i < size; ++i) {
+//         array[i] = rand() % 100;
+//     }
+//
+// return array;
+// }
+//
+//
+// void printArray(int* array ,int size) {
+//     for (int i = 0; i < size;++i) {
+//         std::cout << array[i] << " ";
+//     }
+//     std::cout << std::endl;
+// }
+//
+// void BoubleSort(int* arr, int size) {
+//     for (int i = 0;i < size - 1;i++) {
+//         for (int j = size - 1;j > i;j--) {
+//             if (arr[j] <  arr[j-1]) {
+//                 std::swap(arr[j], arr[j-1]);
+//             }
+//         }
+//     }
+// }
+
+    // int size;
+    //
+    // std::cout << "Enter the size of the array: ";
+    // std::cin >> size;
+    //
+    //
+    // int* myArray = CreateArray(size);
+    //
+    // BoubleSort(myArray ,size);
+    //
+    //
+    // std::cout << "The elemnts of the array are: ";
+    // printArray(myArray,size);
+    //
+    //
+    //
+    // delete[] myArray;
+    //
 
 
 
@@ -76,11 +156,11 @@
 
 
 
-#include <cmath>
-#include <random>
-#include <ctime>
-#include "Header.h"
-#include <iostream>
+//#include <cmath>
+//#include <random>
+//#include <ctime>
+//#include "Header.h"
+//#include <iostream>
 
 
 // double Distance (const Point& point1, const Point& point2 ) {

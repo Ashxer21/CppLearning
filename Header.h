@@ -1,31 +1,20 @@
 #pragma once
 #include <iostream>
 
-struct Point {
-    int x;
-    int y;
+struct Student {
+    std::string name;
+    int age;
+    double grade;
 };
 
-double Distance (const Point& point1, const Point& point2 );
-int* CreateDynamicArray(int size);
-void BoubleSort(int* arr, int size);
-void ShowArray(int* arr,int size);
 
+Student* createStudents(int size);
 
+void inputStudents(Student* students, int size);
 
-template<typename T>
-void findMin(T arr[], int size) {
+Student findTopStudent(Student* students, int size);
 
-    int minElement = arr[0];
-    int minIndex = 0;
+void printTopStudent(const Student& student);
 
-    for (int i = 1; i < size; ++i) {
-        if (arr[i] < minElement) {
-            minElement = arr[i];
-            minIndex = i;
-        }
-    }
+void printStudents(const Student* students, int count);
 
-    std::cout << "Minimal element: " << minElement << std::endl;
-    std::cout << "Index minimal element: " << minIndex << std::endl;
-}

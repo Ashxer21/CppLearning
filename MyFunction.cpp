@@ -1,40 +1,54 @@
-#include <cmath>
-#include <random>
-#include <ctime>
-#include "Header.h"
 #include <iostream>
+#include "Header.h"
 
 
-double Distance (const Point& point1, const Point& point2 ) {
-    double distance = sqrt(pow((point1.x - point2.x), 2) + pow((point1.y - point2.y), 2));
-    return distance;
-}
+Student* createStudents(int size) {
+    return new Student[size];
+};
 
+void inputStudents(Student* students, int size) {
+    for (int i= 0; i < size; ++i) {
+        std::cout << "Enter details for student " << i + 1 << ":\n";
 
-int* CreateDynamicArray(int size) {
-    int*arr = new int[size];
-    srand(time(0));
-    for (int i = 0;i < size; i++) {
-        arr[i] = rand() % 100;
-    }
-    return arr;
-}
+        std::cout << "Name: ";
+        std::cin.ignore();
+        std::getline(std::cin,students[i].name);
 
+        std::cout << "Age: ";
+        std::cin >>students[i].age;
 
-void ShowArray(int* arr,int size) {
-    for (int i = 0; i < size;i++) {
-        std::cout << arr[i] << " ";
-    }
-    std::cout << std::endl;
-}
+        std::cout <<"Grade: ";
+        std::cin >>students[i].grade;
 
+    };
+};
 
-void BoubleSort(int* arr, int size) {
-    for (int i = 0;i < size - 1;i++) {
-        for (int j = size - 1;j > i;j--) {
-            if (arr[j] <  arr[j-1]) {
-                std::swap(arr[j], arr[j-1]);
-            }
+Student findTopStudent(Student* students, int size) {
+    int topIndex = 0;
+    for (int i = 1; i < size; ++i) {
+        if (students[i].grade > students[topIndex].grade) {
+            topIndex = i;
         }
     }
+    return  students[topIndex];
 }
+
+void printStudents(const Student* students, int count) {
+    std::cout << "\nList of Students:\n";
+    for (int i = 0; i < count; ++i) {
+        std::cout << "Student " << i + 1 << ":\n";
+        std::cout << "Name: " << students[i].name << "\n";
+        std::cout << "Age: " << students[i].age << "\n";
+        std::cout << "Grade: " << students[i].grade << "\n";
+        std::cout << "---------------------------\n";
+    }
+}
+
+void printTopStudent(const Student& student) {
+    std::cout << "Top student details:\n";
+    std::cout << "Name: " << student.name << "\n";
+    std::cout << "Age: " << student.age << "\n";
+    std::cout << "Grade: " << student.grade << "\n";
+}
+
+
