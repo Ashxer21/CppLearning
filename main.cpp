@@ -3,8 +3,7 @@
 
 
 int main() {
-
-
+    ProcessCars();
     return 0;
 };
 
