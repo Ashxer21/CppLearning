@@ -18,7 +18,6 @@ public:
     void ChangeEngineVolume(const char* newVolume);
     void ChangeFuelType(const char* newFuel);
     void ChangeColor(const char* newColor);
-
     void EnterBrand();
     void EnterModel();
     void EnterYear();
